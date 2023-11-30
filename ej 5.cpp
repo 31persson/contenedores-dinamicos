@@ -11,14 +11,15 @@ int main() {
     std::vector<int> numeros = {1, 2, 3, 4, 5};
 
     // Utilizar for_each con una expresión lambda para imprimir el cuadrado de cada elemento
-    std::cout << "Cuadrados de los números:" << std::endl;
+    std::cout << "Cuadrados de los numeros:" << std::endl;
     std::for_each(numeros.begin(), numeros.end(), [](int num) {
         std::cout << cuadrado(num) << " ";
     });
     std::cout << std::endl;
 
     // Utilizar punteros inteligentes (std::unique_ptr) para gestionar la memoria
-    std::unique_ptr<std::vector<int>> ptrNumeros = std::make_unique<std::vector<int>>({10, 20, 30});
+    std::unique_ptr<std::vector<int>> ptrNumeros = std::make_unique<std::vector<int>>();
+    *ptrNumeros = {10, 20, 30};
 
     // Imprimir los elementos del vector utilizando for_each con una expresión lambda
     std::cout << "Elementos del vector con puntero inteligente:" << std::endl;
