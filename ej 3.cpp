@@ -1,17 +1,30 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
+#include <algorithm> // Necesario para sort y max_element
 
 int main() {
-    std::vector<int> numeros = {50, 20, 60, 10, 30, 40};
-    std::sort(numeros.begin(), numeros.end());
+    // Crear un vector de enteros
+    std::vector<int> miVector = {5, 2, 8, 1, 3};
 
-    for(int num : numeros) {
-        std::cout << num << std::endl;
+    // Utilizar la función sort para ordenar los elementos del vector
+    std::sort(miVector.begin(), miVector.end());
+
+    // Imprimir el vector ordenado
+    std::cout << "Vector ordenado: ";
+    for (const auto& elemento : miVector) {
+        std::cout << elemento << " ";
     }
+    std::cout << std::endl;
 
-    int maxNum = *std::max_element(numeros.begin(), numeros.end());
-    std::cout << "Numero maximo: " << maxNum << std::endl;
+    // Utilizar la función max_element para encontrar el elemento más grande
+    auto iteradorMax = std::max_element(miVector.begin(), miVector.end());
+
+    // Imprimir el elemento más grande
+    if (iteradorMax != miVector.end()) {
+        std::cout << "Elemento mas grande: " << *iteradorMax << std::endl;
+    } else {
+        std::cout << "El vector está vacio." << std::endl;
+    }
 
     return 0;
 }
