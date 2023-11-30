@@ -2,13 +2,16 @@
 #include <boost/lexical_cast.hpp>
 
 int main() {
-    std::string s = "12345";
-
     try {
-        int i = boost::lexical_cast<int>(s);
-        std::cout << "Número: " << i << std::endl;
-    } catch(boost::bad_lexical_cast &e) {
-        std::cerr << "Error: " << e.what() << std::endl;
+        // Convertir una cadena de caracteres en un número entero usando boost::lexical_cast
+        std::string cadenaNumero = "123";
+        int numero = boost::lexical_cast<int>(cadenaNumero);
+
+        // Imprimir el resultado
+        std::cout << "Número convertido: " << numero << std::endl;
+    } catch (const boost::bad_lexical_cast& ex) {
+        // Manejar la excepción en caso de error en la conversión
+        std::cerr << "Error al convertir la cadena: " << ex.what() << std::endl;
     }
 
     return 0;
